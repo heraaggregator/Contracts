@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
-contract HeraAggregatorV1 is Ownable, ReentrancyGuard {
+contract HeraAggregator is Ownable, ReentrancyGuard {
     using SafeMath for uint256;
 
     address private METIS = 0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000;
@@ -101,8 +101,8 @@ contract HeraAggregatorV1 is Ownable, ReentrancyGuard {
     }
 
     function swap(address _tokenIn, address _tokenOut, uint256 _amountIn, uint256 _amountOut, PathData[] calldata paths) external payable nonReentrant{
-        require(_amountOut > 0, "Min return should not be 0");
-        require(paths.length > 0, "Path should not be empty");
+        require(_amountOut > 0, "AMOUNTOUT_ZERO");
+        require(paths.length > 0, "PATH_EMPTY");
 
         if(_tokenIn != METIS)
             SafeERC20.safeTransferFrom(IERC20(_tokenIn),msg.sender, address(this), _amountIn);
