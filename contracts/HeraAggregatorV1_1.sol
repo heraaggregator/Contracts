@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
-contract HeraAggregator is Ownable, ReentrancyGuard {
+contract HeraAggregatorV1 is Ownable, ReentrancyGuard {
     using SafeMath for uint256;
 
     address private METIS = 0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000;
